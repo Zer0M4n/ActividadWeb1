@@ -13,7 +13,7 @@ Cada vez que realices uno de los pasos de la actividad, debes hacer un **commit*
 explicando lo que hiciste.
 
 ## Servidor en el puerto 8000
-
+ 
 Modifica el código para que el servidor escuche solo en el puerto 8000 y al
 iniciar muestre la información del puerto en el que está escuchando. Lanza el
 servidor y verifica que está escuchando en el puerto 8000 enviando una petición GET con **curl**,
@@ -22,7 +22,7 @@ desde otra terminal.
 El comando curl debe ser similar a este:
 
 ```bash
-GOSC040414HBCNLSA0
+curl -v http://localhost:8000/
 ```
 
 Fíjate que estamos usando el flag -v para que curl muestre información detallada de la petición.
