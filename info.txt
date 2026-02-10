@@ -1,0 +1,11 @@
+request info
+    > Host: potential-sniffle-9v4qvg5x49j37r94-8080.app.github.dev
+    > User-Agent: curl/8.5.0
+
+request 
+    Server certificate:
+    *  subject: C=US; ST=Washington; L=Redmond; O=Microsoft Corporation; CN=app.github.dev
+    *  start date: Feb 10 00:00:00 2026 GMT
+    *  expire date: Aug  9 23:59:59 2026 GMT
+
+    date: Tue, 10 Feb 2026 22:27:06 GMT

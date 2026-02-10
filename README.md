@@ -22,7 +22,7 @@ desde otra terminal.
 El comando curl debe ser similar a este:
 
 ```bash
-curl -v http://localhost:8000/
+GOSC040414HBCNLSA0
 ```
 
 Fíjate que estamos usando el flag -v para que curl muestre información detallada de la petición.
