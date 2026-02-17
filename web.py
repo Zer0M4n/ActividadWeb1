@@ -10,26 +10,27 @@ class WebRequestHandler(BaseHTTPRequestHandler):
         return dict(parse_qsl(self.url().query))
 
     def do_GET(self):
-        self.send_response(200)
+        path = self.url().path
+        if path == "/":
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html")
+            self.end_headers()
+            self.wfile.write(self.get_home_page().encode("utf-8"))
+            return
+
+        self.send_response(404)
         self.send_header("Content-Type", "text/html")
         self.end_headers()
-        self.wfile.write(self.get_response().encode("utf-8"))
+        self.wfile.write(self.get_not_found().encode("utf-8"))
 
-    def get_response(self):
-        path = self.url().path
-        query = self.query_data()
-        if path.startswith("/proyecto/"):
-            project = path.split("/", 2)[2]
-            author = query.get("autor", "")
-            author_text = f" Autor: {author}" if author else ""
-            return f"<h1>Proyecto: {project}{author_text}</h1>"
+    def get_home_page(self):
+        with open("home.html", "r", encoding="utf-8") as file:
+            return file.read()
 
-        return f"""
-    <h1> Hola Web </h1>
-    <p> URL Parse Result : {self.url()}         </p>
-    <p> Path Original: {self.path}         </p>
-    <p> Headers: {self.headers}      </p>
-    <p> Query: {self.query_data()}   </p>
+    def get_not_found(self):
+        return """
+    <h1>404 Not Found</h1>
+    <p>La pagina solicitada no existe.</p>
 """
 
 
